@@ -24,15 +24,21 @@ export default function CaseStudies() {
     <section id="cases" className="case-studies section">
       <div className="container">
         <div className="section-header fade-in-up">
-          <h2>Featured Work</h2>
-          <p>Strategic campaigns that delivered measurable cultural and commercial impact</p>
+          <p className="section-eyebrow">Selected work</p>
+          <h2>Campaigns that moved culture<br />and the numbers</h2>
+          <p className="section-lead">
+            Four projects across snacks, beverages, and beauty — each built on a
+            cultural insight and measured against business results.
+          </p>
         </div>
 
         <div className="cases-grid">
-          {caseStudies.map((caseStudy) => (
+          {caseStudies.map((caseStudy, index) => (
             <CaseStudyCard
               key={caseStudy.id}
               caseStudy={caseStudy}
+              index={index}
+              variant={index % 4 === 0 || index % 4 === 3 ? 'wide' : 'standard'}
               onClick={() => setSelectedCaseId(caseStudy.id)}
             />
           ))}

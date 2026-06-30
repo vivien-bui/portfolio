@@ -1,65 +1,101 @@
 .about {
-  background: white;
+  background: var(--neutral-light);
 }
 
+/* Asymmetric two-column: narrative sticks while the list scrolls past */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 60px;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 80px;
+  align-items: start;
 }
 
 .about-content {
-  max-width: 900px;
+  position: sticky;
+  top: 110px;
 }
 
-.about h2 {
-  margin-bottom: 30px;
-  color: var(--neutral-dark);
+.about-content .section-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+}
+
+.about-content h2 {
+  margin-bottom: 28px;
 }
 
 .about-content p {
   font-size: 1.1rem;
   color: var(--text-secondary);
-  margin-bottom: 20px;
-  line-height: 1.8;
+  margin-bottom: 18px;
+  line-height: 1.7;
+  max-width: 52ch;
 }
 
-.expertise-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-top: 40px;
+.expertise-heading {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  margin-bottom: 8px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
 }
 
+.expertise-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Divided list instead of bordered boxes — elevation only where it earns it */
 .expertise-item {
-  padding: 24px;
-  background: var(--neutral-light);
-  border-radius: 8px;
-  border-left: 4px solid var(--primary);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.expertise-num {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary);
+  padding-top: 3px;
 }
 
 .expertise-item h4 {
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   color: var(--neutral-dark);
 }
 
 .expertise-item p {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
   margin: 0;
+  max-width: 42ch;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
   }
 
-  .expertise-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .about-content {
+    position: static;
   }
 
   .about-content p {
     font-size: 1rem;
+    max-width: 60ch;
   }
 }
